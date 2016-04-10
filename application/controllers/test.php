@@ -25,8 +25,7 @@ class Test extends CI_Controller
         $this->load->view('templates/footer_reg');
     }
 
-    public function grammar($num)
-    {
+    public function grammar($num){
 
         //temp
         if($num>16){
@@ -46,5 +45,25 @@ class Test extends CI_Controller
         $this->load->view('test_question_view', $data);
         $this->load->view('templates/footer_reg');
          
+    }
+
+    public function submit(){
+
+        //check if user is logged in
+
+        //get post data
+        $submitted_answer = $this->input->post('submitted_answer');
+        $question_no = $this->input->post('question_no');
+
+        //get correct answer
+        $correct_answer = $this->grammar_model->getAnswer($question_no)[0]->answers;
+
+        //get user's previous submission
+
+        //if user never submitted, save new submission
+
+        //if user has submitted before, update submission
+
+        //redirect to next page
     }
 }?>
