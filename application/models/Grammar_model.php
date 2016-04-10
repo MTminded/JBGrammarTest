@@ -18,12 +18,20 @@ class Grammar_model extends CI_Model
 
     }
 
-    function getAnswer($question_no){
+    function getQuestion($question_no){
         $sql = "SELECT *
-                FROM grammerTests
+                FROM grammarTests
                 WHERE No = '{$question_no}' ";
         $query = $this->db->query($sql);
         return $query->result();
+    }
+
+    function getSubmission($user_id){
+        $sql = "SELECT *
+                FROM grammarTestSubmissions
+                WHERE user_id = '{$user_id}' ";
+        $query = $this->db->query($sql);
+        return $query;
     }
 
     function submitAnswer($data){
