@@ -9,7 +9,7 @@
 			
 			<div class="form_wrapper">
 			<?php echo form_open('test/submit') ?>
-				<input autocomplete="off" name="submitted_answer" value="" placeholder="Type Answer" />
+				<input autocomplete="off" name="submitted_answer" value="<?php echo $answer;?>" placeholder="Type Answer" />
 				<input type="hidden" autocomplete="off" name="group_no" value=<?php echo $num; ?> />
 				<input type="hidden" autocomplete="off" name="question_no" value=<?php echo $question->No; ?> />
 				
