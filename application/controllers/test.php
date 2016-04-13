@@ -25,6 +25,19 @@ class Test extends CI_Controller
         $this->load->view('templates/footer_reg');
     }
 
+    public function start(){
+
+        date_default_timezone_set('America/Los_Angeles');
+        $startTime = time();
+        //set the session variables
+        $sessiondata = array(
+           'startTime' => $startTime,
+        );
+        $this->session->set_userdata($sessiondata);
+
+        redirect('test/grammar/1');
+    }
+
     public function grammar($num){
 
         //check if user is logged in
@@ -35,9 +48,12 @@ class Test extends CI_Controller
             redirect('test/grammar/1');
         }
 
+        $sessionData = $this->session->get_userdata();
+
         $data['title'] = "Welcome to ".TITLE;
         $data['num'] = $num;
         $data['answer'] = '';
+        $data['startTime'] = $sessionData['startTime'];
 
         //Get all the questions in group $num
         $questions_array = $this->grammar_model->getQuestionsFromGroup($num)->result();
