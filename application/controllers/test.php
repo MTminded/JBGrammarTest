@@ -82,6 +82,19 @@ class Test extends CI_Controller
          
     }
 
+    public function timesup(){
+
+    }
+
+    public function complete(){
+        //check if user is logged in
+        $user_id = 1;
+
+        //how many answers are correct
+        
+
+    }
+
     public function submit(){
 
         //check if user is logged in

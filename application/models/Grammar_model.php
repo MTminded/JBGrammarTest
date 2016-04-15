@@ -45,5 +45,6 @@ class Grammar_model extends CI_Model
         $this->db->where('user_id', $user_id);
         $this->db->update('grammarTestSubmissions', $data);
     }
+ 
 
 }?>

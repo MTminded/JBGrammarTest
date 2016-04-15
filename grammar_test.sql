@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.42)
 # Database: infinity
-# Generation Time: 2016-04-12 05:36:44 +0000
+# Generation Time: 2016-04-15 06:00:12 +0000
 # ************************************************************
 
 
@@ -18,6 +18,32 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table ci_sessions
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `ci_sessions`;
+
+CREATE TABLE `ci_sessions` (
+  `id` varchar(40) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
+  `data` blob NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ci_sessions_timestamp` (`timestamp`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `ci_sessions` WRITE;
+/*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
+
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`)
+VALUES
+	('63302c561c8e5b7c3c02cf1c24a72bc983603234','::1',1450527431,X'5F5F63695F6C6173745F726567656E65726174657C693A313435303532373433313B'),
+	('ce891839cbdfb0900f18062baaf513ebd760c16c','::1',1450527153,X'5F5F63695F6C6173745F726567656E65726174657C693A313435303532363933393B');
+
+/*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table grammarTests
@@ -222,15 +248,6 @@ CREATE TABLE `grammarTestSubmissions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `grammarTestSubmissions` WRITE;
-/*!40000 ALTER TABLE `grammarTestSubmissions` DISABLE KEYS */;
-
-INSERT INTO `grammarTestSubmissions` (`id`, `user_id`, `answers`, `study_units`, `timestamp`)
-VALUES
-	(3,1,'{\"1\":{\"no\":\"2.2\",\"correct answer\":\"C\",\"submitted answer\":\"C\"},\"2\":{\"no\":\"3.3\",\"correct answer\":\"C\",\"submitted answer\":\"C\"},\"3\":{\"no\":\"4.12\",\"correct answer\":\"D,E\",\"submitted answer\":\"D,E\"},\"0\":{\"no\":\"1.1\",\"correct answer\":\"A\",\"submitted answer\":\"A\"},\"4\":{\"no\":\"5.4\",\"correct answer\":\"A\",\"submitted answer\":\"A\"},\"5\":{\"no\":\"6.5\",\"correct answer\":\"A,B\",\"submitted answer\":\"A,B\"},\"6\":{\"no\":\"7.2\",\"correct answer\":\"B\",\"submitted answer\":\"B\"},\"7\":{\"no\":\"8.4\",\"correct answer\":\"A\",\"submitted answer\":\"A\"},\"8\":{\"no\":\"9.18\",\"correct answer\":\"B,C\",\"submitted answer\":\"B,C\"},\"9\":{\"no\":\"10.11\",\"correct answer\":\"C\",\"submitted answer\":\"C\"},\"10\":{\"no\":\"11.2\",\"correct answer\":\"B\",\"submitted answer\":\"B\"},\"11\":{\"no\":\"12.5\",\"correct answer\":\"D\",\"submitted answer\":\"D\"},\"12\":{\"no\":\"13.5\",\"correct answer\":\"A,D\",\"submitted answer\":\"A,D\"}}','','2016-04-10 13:30:49');
-
-/*!40000 ALTER TABLE `grammarTestSubmissions` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table grammarTestUsers
@@ -254,7 +271,8 @@ LOCK TABLES `grammarTestUsers` WRITE;
 INSERT INTO `grammarTestUsers` (`id`, `first_name`, `last_name`, `phone`, `password`, `timestamp`)
 VALUES
 	(1,'Mike','Tang','18611809544','21232f297a57a5a743894a0e4a801fc3','2016-04-08 22:20:24'),
-	(2,'Mike','X','1234567890','test','2016-04-08 22:23:08');
+	(2,'Mike','X','1234567890','test','2016-04-08 22:23:08'),
+	(3,'Tes','Tes',NULL,NULL,'2016-04-12 21:30:39');
 
 /*!40000 ALTER TABLE `grammarTestUsers` ENABLE KEYS */;
 UNLOCK TABLES;
