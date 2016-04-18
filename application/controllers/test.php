@@ -90,9 +90,28 @@ class Test extends CI_Controller
         //check if user is logged in
         $user_id = 1;
 
-        //how many answers are correct
-        
+        //how many answers are correct and get suggested study units
+        $lastSubmission = $this->grammar_model->getSubmission($user_id);
+        if ($lastSubmission->num_rows() != 0){
+            
+            $submittedAnswers = json_decode($lastSubmission->result()[0]->answers, true);
+            $study_units = json_decode($lastSubmission->result()[0]->study_units, true);
+            $correctAnswers = count($submittedAnswers) - count($study_units);
+   
+        }else{
+            //redirect to the start of the test
+            redirect('test/index');
+        }
 
+        //set the data and display them
+        $data['title'] = "Welcome to ".TITLE;
+        $data['correct_answers'] = $correctAnswers;
+        $data['study_units'] = $study_units;
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/nav', $data);
+        $this->load->view('test_complete_view', $data);
+        $this->load->view('templates/footer_reg');
     }
 
     public function submit(){

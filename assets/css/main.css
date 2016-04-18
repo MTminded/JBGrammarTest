@@ -127,6 +127,12 @@ body{
     overflow: hidden;
 }
 
+.center{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;   
+}
+
 
 /* ==========================================================================
  custom styles
@@ -266,6 +272,26 @@ body{
     }
 
 
+.score_container{
+    margin-top: 20px;
+}
+    .score{
+        text-align: center;
+
+    }
+    .correct_answers{
+        font-size: 120px;
+        margin-right: 0px;
+    }
+    .total_answers{
+        font-size: 40px;
+        color:#7eb530;
+        margin-right: -40px;
+    }
+
+.complete_page{
+    margin-top: 40px;
+}
 
 
 /* ==========================================================================
