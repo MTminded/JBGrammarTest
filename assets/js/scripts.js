@@ -1,9 +1,11 @@
-function displayCountdown(target_date){
+function displayCountdown(start_date_time){
 	// variables for time units and extra digits (i.e. 09 instead of 9)
 	var days, hours, minutes, seconds, xhour, xmin, xsec;
 
 	// get tag element
 	var countdown = document.getElementById("countdown");
+	var timer = document.getElementById("timer");
+	// var countdown = $('.countdown');
 
 	// update the tag with id "countdown" every 1 second
 	setInterval(function () {
@@ -12,10 +14,11 @@ function displayCountdown(target_date){
 	    var d = new Date();	
 
 	    var current_date = d.getTime();
-	    var seconds_left = (target_date - current_date) / 1000;
+	    var seconds_left = (902000 - (current_date - start_date_time)) / 1000;
 
 	    if (seconds_left < 0){
 	    	countdown.innerHTML = "Times Up!";
+	    	timer.style.visibility = "visible";
 	    } else{
 	    	// do some time calculations
 		    days = parseInt(seconds_left / 86400);
@@ -31,10 +34,10 @@ function displayCountdown(target_date){
 		    xsec = (seconds < 10 ) ? '0' : '' ;
 
 		    // format countdown string + set tag value
-		    countdown.innerHTML = xhour + hours + " : "
-		    + xmin + minutes + " : " + xsec + seconds;  
+		    countdown.innerHTML = xmin + minutes + ":" + xsec + seconds; 
+		    timer.style.visibility = "visible";
 	    }
 
 	}, 1000);
-}
 
+}

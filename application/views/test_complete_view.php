@@ -16,8 +16,24 @@
 					</div>
 					
 					
+					<div class="row study_units">
+						<div class="col-xs-12 col-sm-5 center">
+							<p class="t_c">Recommended Study Units:</p>
+							<?php foreach ($study_units as $study_unit): ?>
+								<div class="study_unit row">
+									<div class="col-xs-5">Unit: <?php echo $study_unit['unit'];?></div>
+									<div class="col-xs-7"><?php echo $study_unit['category']; ?> </div>
+									 
+								</div>
+
+							<?php endforeach;?>
+						</div>
+					</div>	
 
 				</div>
+	
+
+
 				<div class="box_bottom">
 					
 					<button type="submit" class="btn btn-default next_button f_r transition" name="submit">Next</button>

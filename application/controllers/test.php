@@ -78,7 +78,7 @@ class Test extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);
         $this->load->view('test_question_view', $data);
-        $this->load->view('templates/footer_reg');
+        $this->load->view('templates/footer_test');
          
     }
 
@@ -120,10 +120,23 @@ class Test extends CI_Controller
         $user_id = 1;
 
         //get post data
-        $submitted_answer = $this->input->post('submitted_answer');
+        $answer_a = $this->input->post('answer_a');
+        $answer_b = $this->input->post('answer_b');
+        $answer_c = $this->input->post('answer_c');
+        $answer_d = $this->input->post('answer_d');
+        $answer_e = $this->input->post('answer_e');
         $group_no = $this->input->post('group_no');
         $question_no = $this->input->post('question_no');
 
+        $answer = "";
+        if ($answer_a != ''){ $answer = $answer . $answer_a . ',';};
+        if ($answer_b != ''){ $answer = $answer . $answer_b . ',';};
+        if ($answer_c != ''){ $answer = $answer . $answer_c . ',';};
+        if ($answer_d != ''){ $answer = $answer . $answer_d . ',';};
+        if ($answer_e != ''){ $answer = $answer . $answer_e . ',';};
+
+        $submitted_answer = rtrim($answer, ",");
+        
         //get question data (i.e. correct answer)
         $question = $this->grammar_model->getQuestion($question_no)[0];
 

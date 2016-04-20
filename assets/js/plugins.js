@@ -23,25 +23,3 @@
 
 // Place any jQuery/helper plugins in here.
 
-//Validate the form
-$(".submit_button").click(function(){
-
-    $(".warning_message").html("");
-
-    if ($("input[name='recording']").val() == ""){
-        $(".warning_message").html("请先录音后再点击Next。");
-        return false;
-    }
-
-    if ($("input[name='text']").val() == ""){
-        $(".warning_message").html("请输入翻译的英文内容。");
-        return false;
-    }
-
-});
-
-$(".play_both").click(function(){
-    console.log("text");
-    $(".teachers_audio_wrapper")[0].play();
-    $(".playback_wrapper")[0].play();
-});

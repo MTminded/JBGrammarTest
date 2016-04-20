@@ -274,6 +274,7 @@ body{
 
 .score_container{
     margin-top: 20px;
+    margin-bottom: 20px;
 }
     .score{
         text-align: center;
@@ -291,6 +292,15 @@ body{
 
 .complete_page{
     margin-top: 40px;
+}
+
+.study_unit{
+    border:1px solid #ddd;
+    padding: 5px;
+    margin-bottom: 5px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 
