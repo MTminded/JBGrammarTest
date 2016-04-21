@@ -268,7 +268,10 @@ body{
 }
     .answer{
         margin:4px 8px !important;
-
+        float:left;
+    }
+    .answer_wrapper div{
+        float:left;
     }
 
 
@@ -301,6 +304,11 @@ body{
     background: #f7f7f7;
     border-radius: 5px;
     font-size: 16px;
+}
+
+.complete_btn{
+    font-size: 16px;
+    padding: 8px 20px !important;
 }
 
 

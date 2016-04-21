@@ -31,7 +31,7 @@
 						<div class="form_wrapper">
 						<?php echo form_open('test/submit') ?>
 						
-						<div class="col-xs-12 col-sm-3">
+						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_A != '') :?>
 							<label class="answer_wrapper">		 
 								<input class="answer" type="checkbox" name="answer_a" value="A"> <?php echo $question->choice_A;?>
@@ -39,7 +39,7 @@
 						<?php endif;?>	
 						</div>
 						
-						<div class="col-xs-12 col-sm-3">
+						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_B != '') :?>
 							<label class="answer_wrapper">		 
 								<input class="answer" type="checkbox" name="answer_b" value="B"> <?php echo $question->choice_B;?>
@@ -47,7 +47,7 @@
 						<?php endif;?>	
 						</div>
 
-						<div class="col-xs-12 col-sm-3">
+						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_C != '') :?>
 							<label class="answer_wrapper">		 
 								<input class="answer" type="checkbox" name="answer_c" value="C"> <?php echo $question->choice_C;?>
@@ -55,7 +55,7 @@
 						<?php endif;?>	
 						</div>
 
-						<div class="col-xs-12 col-sm-3">
+						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_D != '') :?>
 							<label class="answer_wrapper">		 
 								<input class="answer" type="checkbox" name="answer_d" value="D"> <?php echo $question->choice_D;?>
@@ -63,7 +63,7 @@
 						<?php endif;?>	
 						</div>
 
-						<div class="col-xs-12 col-sm-3">
+						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_E != '') :?>
 							<label class="answer_wrapper">		 
 								<input class="answer" type="checkbox" name="answer_e" value="E"> <?php echo $question->choice_E;?>
