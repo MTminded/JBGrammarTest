@@ -13,7 +13,7 @@
 							<span class="correct_answers" id="correct_answers">
 								<?php if ($correct_answers < 2) echo $correct_answers; ?>
 							</span>
-							<span class="total_answers">/16</span>
+							<span class="total_answers">/20</span>
 						</div>
 					</div>
 					
@@ -44,7 +44,6 @@
 					<a href="<?php echo site_url('test/start');?>" class="btn back_button f_l transition complete_btn">Retake Test</a>
 					<button type="submit" class="btn btn-default next_button f_r transition complete_btn" name="submit">Start Studying</button>
 				</div>
-
 
 			</div>
 		</div>

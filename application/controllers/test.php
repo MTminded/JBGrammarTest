@@ -44,7 +44,7 @@ class Test extends CI_Controller
         $user_id = 1;
 
         //temp
-        if($num>16){
+        if($num>20){
             redirect('test/grammar/1');
         }
 
@@ -54,6 +54,25 @@ class Test extends CI_Controller
         $data['num'] = $num;
         $data['answer'] = '';
         $data['startTime'] = $sessionData['startTime'];
+
+        $original_num = $num;
+
+        switch ($num) {
+            case 17:
+                $num = 5;
+                break;
+            case 18:
+                $num = 6;
+                break;
+            case 19:
+                $num = 15;
+                break;
+            case 20:
+                $num = 16;
+                break;
+            default:
+               $num = $num;
+        }
 
         //Get all the questions in group $num
         $questions_array = $this->grammar_model->getQuestionsFromGroup($num)->result();
@@ -66,11 +85,11 @@ class Test extends CI_Controller
         if ($lastSubmission->num_rows() != 0){
             $submittedAnswers = json_decode($lastSubmission->result()[0]->answers, true);
             //if this question has been previously submitted, display the submission
-            if (array_key_exists($num-1, $submittedAnswers)) {
-                $question = $submittedAnswers[$num-1]['no'];
+            if (array_key_exists($original_num-1, $submittedAnswers)) {
+                $question = $submittedAnswers[$original_num-1]['no'];
                 $question = strstr($question, '.');
                 $question = substr($question, 1) - 1;
-                $data['answer'] = $submittedAnswers[$num-1]['submitted answer'];
+                $data['answer'] = $submittedAnswers[$original_num-1]['submitted answer'];
             }
         }
         $data['question'] = $questions_array[$question];
@@ -212,7 +231,7 @@ class Test extends CI_Controller
         }
 
         //redirect to next page
-        if ($group_no == 16){
+        if ($group_no == 20){
             redirect('test/complete');
         }else{
             redirect('test/grammar/'. ($group_no + 1));

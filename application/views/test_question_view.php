@@ -25,7 +25,7 @@
 					<h1 class="title">Complete the sentence</h1>
 					<h2 class="subtitle">Select all answers that apply</h2>
 					
-					<div class="sentence"><?php echo $question->tests;?></div>
+					<div class="sentence"><?php echo $num.'. '. $question->tests;?></div>
 					
 					<div class="row">
 						<div class="form_wrapper">
