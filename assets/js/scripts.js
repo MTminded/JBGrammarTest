@@ -14,7 +14,7 @@ function displayCountdown(start_date_time){
 	    var d = new Date();	
 
 	    var current_date = d.getTime();
-	    var seconds_left = (902000 - (current_date - start_date_time)) / 1000;
+	    var seconds_left = (602000 - (current_date - start_date_time)) / 1000;
 
 	    if (seconds_left < 0){
 	    	countdown.innerHTML = "Times Up!";
