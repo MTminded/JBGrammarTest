@@ -27,6 +27,9 @@ class Test extends CI_Controller
 
     public function start(){
 
+        //check if user is logged in
+        $user_id = 1;
+
         date_default_timezone_set('America/Los_Angeles');
         $startTime = time();
         //set the session variables
@@ -81,7 +84,7 @@ class Test extends CI_Controller
         $question = array_rand($questions_array, 1);
 
         //if student has previously answered a question, show that question instead
-        $lastSubmission = $this->grammar_model->getSubmission($user_id);
+        $lastSubmission = $this->grammar_model->getInPorgressSubmission($user_id);
         if ($lastSubmission->num_rows() != 0){
             $submittedAnswers = json_decode($lastSubmission->result()[0]->answers, true);
             //if this question has been previously submitted, display the submission
@@ -171,7 +174,7 @@ class Test extends CI_Controller
         $array2["category"] = $question->category;
 
         //get user's previous submission
-        $lastSubmission = $this->grammar_model->getSubmission($user_id);
+        $lastSubmission = $this->grammar_model->getInPorgressSubmission($user_id);
 
         //if user never submitted, save new submission, else, update submission
         if ($lastSubmission->num_rows() == 0){   
@@ -232,6 +235,10 @@ class Test extends CI_Controller
 
         //redirect to next page
         if ($group_no == 20){
+            $data = array(
+                 'completed' => 1
+            );
+            $this->grammar_model->testComplete($user_id, $data);
             redirect('test/complete');
         }else{
             redirect('test/grammar/'. ($group_no + 1));

@@ -34,17 +34,33 @@ class Grammar_model extends CI_Model
         return $query;
     }
 
+    function getInPorgressSubmission($user_id){
+        $sql = "SELECT *
+                FROM grammarTestSubmissions
+                WHERE user_id = '{$user_id}'
+                AND completed = 2";
+        $query = $this->db->query($sql);
+        return $query;
+    }
+
     function submitAnswer($data){
         $this->load->helper('url');
         $this->db->insert('grammarTestSubmissions', $data);
         return;
     }
 
-    function updateAnswer($user_id, $data){
+    function testComplete($user_id, $data){
         $this->load->helper('url');
         $this->db->where('user_id', $user_id);
         $this->db->update('grammarTestSubmissions', $data);
     }
- 
+
+    function updateAnswer($user_id, $data){
+        $this->load->helper('url');
+        $this->db->where('user_id', $user_id);
+        $this->db->where('completed', 2);
+        $this->db->update('grammarTestSubmissions', $data);
+    }
+
 
 }?>
