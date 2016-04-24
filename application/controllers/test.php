@@ -113,12 +113,18 @@ class Test extends CI_Controller
         $user_id = 1;
 
         //how many answers are correct and get suggested study units
-        $lastSubmission = $this->grammar_model->getSubmission($user_id);
+        $lastSubmission = $this->grammar_model->getInPorgressSubmission($user_id);
         if ($lastSubmission->num_rows() != 0){
             
             $submittedAnswers = json_decode($lastSubmission->result()[0]->answers, true);
             $study_units = json_decode($lastSubmission->result()[0]->study_units, true);
             $correctAnswers = count($submittedAnswers) - count($study_units);
+
+            //set test to complete
+            $data = array(
+                 'completed' => 1
+            );
+            $this->grammar_model->testComplete($user_id, $data);
    
         }else{
             //redirect to the start of the test
@@ -235,10 +241,6 @@ class Test extends CI_Controller
 
         //redirect to next page
         if ($group_no == 20){
-            $data = array(
-                 'completed' => 1
-            );
-            $this->grammar_model->testComplete($user_id, $data);
             redirect('test/complete');
         }else{
             redirect('test/grammar/'. ($group_no + 1));
