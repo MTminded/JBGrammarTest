@@ -5,15 +5,15 @@
 				<div class="box_top">
 					
 					<div class="hud row">
-						<div class="col-xs-12 col-sm-9">
+						<div class="col-xs-12 col-sm-10">
 							<div class="progress_bar">
-								<?php for ($x = 1; $x <= 16; $x++) :?>
+								<?php for ($x = 1; $x <= 20; $x++) :?>
 									<span class="progress-<?php echo $x;?> <?php if ($x<$num) echo "complete";?>"></span>
 								<?php endfor; ?>
 							</div>
 						</div>
 
-						<div class="col-xs-12 col-sm-3">
+						<div class="col-xs-12 col-sm-2">
 							<div id="timer">
 								<i class="fa fa-clock-o" aria-hidden="true"></i> <span id="countdown">00:00</span>
 							</div>

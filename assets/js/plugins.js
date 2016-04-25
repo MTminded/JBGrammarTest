@@ -1,5 +1,15 @@
 // Avoid `console` errors in browsers that lack a console.
 (function() {
+
+    $('.btn-code').click(function(e) {
+        $.ajax({
+          url: getCodeURL,
+          context: document.body
+        }).done(function(data) {
+          alert("The test calidation cdoe is: " + data);
+        });
+    });
+
     var method;
     var noop = function () {};
     var methods = [
@@ -34,6 +44,8 @@
     numAnim.start();
 
 }());
+
+
 
 
 // Place any jQuery/helper plugins in here.

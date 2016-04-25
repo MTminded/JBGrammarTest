@@ -17,6 +17,13 @@ class Test extends CI_Controller
     }
 
     public function index(){
+
+        if (isset($_SESSION["user_id"])){
+             $user_id = $_SESSION["user_id"];
+        }else{
+            redirect('login/index');
+        }
+
         $data['title'] = "Welcome to ".TITLE;
        
         $this->load->view('templates/header', $data);
@@ -28,9 +35,13 @@ class Test extends CI_Controller
     public function start(){
 
         //check if user is logged in
-        $user_id = 1;
+        if (isset($_SESSION["user_id"])){
+             $user_id = $_SESSION["user_id"];
+        }else{
+            redirect('login/index');
+        }
 
-        date_default_timezone_set('America/Los_Angeles');
+        date_default_timezone_set('Asia/Hong_Kong');
         $startTime = time();
         //set the session variables
         $sessiondata = array(
@@ -44,7 +55,11 @@ class Test extends CI_Controller
     public function grammar($num){
 
         //check if user is logged in
-        $user_id = 1;
+        if (isset($_SESSION["user_id"])){
+             $user_id = $_SESSION["user_id"];
+        }else{
+            redirect('login/index');
+        }
 
         //temp
         if($num>20){
@@ -110,7 +125,11 @@ class Test extends CI_Controller
 
     public function complete(){
         //check if user is logged in
-        $user_id = 1;
+        if (isset($_SESSION["user_id"])){
+             $user_id = $_SESSION["user_id"];
+        }else{
+            redirect('login/index');
+        }
 
         //how many answers are correct and get suggested study units
         $lastSubmission = $this->grammar_model->getInPorgressSubmission($user_id);
@@ -145,7 +164,11 @@ class Test extends CI_Controller
     public function submit(){
 
         //check if user is logged in
-        $user_id = 1;
+        if (isset($_SESSION["user_id"])){
+             $user_id = $_SESSION["user_id"];
+        }else{
+            redirect('login/index');
+        }
 
         //get post data
         $answer_a = $this->input->post('answer_a');
