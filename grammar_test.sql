@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.42)
 # Database: infinity
-# Generation Time: 2016-04-15 06:00:12 +0000
+# Generation Time: 2016-04-26 06:16:05 +0000
 # ************************************************************
 
 
@@ -245,9 +245,25 @@ CREATE TABLE `grammarTestSubmissions` (
   `answers` text,
   `study_units` text,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `completed` int(11) DEFAULT '2' COMMENT '1 - Complated test, 2 - inprogress',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `grammarTestSubmissions` WRITE;
+/*!40000 ALTER TABLE `grammarTestSubmissions` DISABLE KEYS */;
+
+INSERT INTO `grammarTestSubmissions` (`id`, `user_id`, `answers`, `study_units`, `timestamp`, `completed`)
+VALUES
+	(7,1,'{\"0\":{\"no\":\"1.2\",\"correct answer\":\"B\",\"submitted answer\":\"B\"},\"1\":{\"no\":\"2.1\",\"correct answer\":\"B\",\"submitted answer\":\"B\"},\"2\":{\"no\":\"3.4\",\"correct answer\":\"A,C\",\"submitted answer\":\"A\"},\"3\":{\"no\":\"4.12\",\"correct answer\":\"D,E\",\"submitted answer\":\"A,E\"},\"4\":{\"no\":\"5.1\",\"correct answer\":\"B\",\"submitted answer\":\"A\"},\"5\":{\"no\":\"6.1\",\"correct answer\":\"C\",\"submitted answer\":\"C\"},\"6\":{\"no\":\"7.2\",\"correct answer\":\"B\",\"submitted answer\":\"B\"},\"7\":{\"no\":\"8.1\",\"correct answer\":\"C\",\"submitted answer\":\"C\"},\"8\":{\"no\":\"9.6\",\"correct answer\":\"A\",\"submitted answer\":\"A\"},\"9\":{\"no\":\"10.12\",\"correct answer\":\"A\",\"submitted answer\":\"A\"},\"10\":{\"no\":\"11.9\",\"correct answer\":\"D\",\"submitted answer\":\"D\"},\"11\":{\"no\":\"12.3\",\"correct answer\":\"C\",\"submitted answer\":\"A\"},\"12\":{\"no\":\"13.6\",\"correct answer\":\"B\",\"submitted answer\":\"B\"},\"13\":{\"no\":\"14.5\",\"correct answer\":\"B\",\"submitted answer\":\"B,C\"},\"14\":{\"no\":\"15.7\",\"correct answer\":\"B\",\"submitted answer\":\"B\"},\"15\":{\"no\":\"16.9\",\"correct answer\":\"B\",\"submitted answer\":\"\"},\"16\":{\"no\":\"5.1\",\"correct answer\":\"B\",\"submitted answer\":\"\"},\"19\":{\"no\":\"16.4\",\"correct answer\":\"C\",\"submitted answer\":\"A,B\"},\"17\":{\"no\":\"6.1\",\"correct answer\":\"C\",\"submitted answer\":\"\"},\"18\":{\"no\":\"15.11\",\"correct answer\":\"C\",\"submitted answer\":\"\"}}','{\"19\":{\"unit\":\"140\",\"category\":\"Phrasal verbs\"}}','2016-04-20 11:21:49',1),
+	(10,1,'{\"0\":{\"no\":\"1.3\",\"correct answer\":\"C\",\"submitted answer\":\"B\"},\"1\":{\"no\":\"2.6\",\"correct answer\":\"B\",\"submitted answer\":\"C\"},\"2\":{\"no\":\"3.6\",\"correct answer\":\"C\",\"submitted answer\":\"A\"},\"3\":{\"no\":\"4.3\",\"correct answer\":\"A,C,D\",\"submitted answer\":\"B\"},\"4\":{\"no\":\"5.2\",\"correct answer\":\"C\",\"submitted answer\":\"D\"},\"5\":{\"no\":\"6.3\",\"correct answer\":\"D\",\"submitted answer\":\"B\"},\"19\":{\"no\":\"16.1\",\"correct answer\":\"B\",\"submitted answer\":\"B\"}}','','2016-04-24 13:54:38',1),
+	(11,1,'{\"0\":{\"no\":\"1.1\",\"correct answer\":\"A\",\"submitted answer\":\"B\"},\"1\":{\"no\":\"2.4\",\"correct answer\":\"C\",\"submitted answer\":\"C\"},\"19\":{\"no\":\"16.1\",\"correct answer\":\"B\",\"submitted answer\":\"B\"}}','','2016-04-24 13:58:49',1),
+	(12,1,'{\"0\":{\"no\":\"1.3\",\"correct answer\":\"C\",\"submitted answer\":\"A\"},\"1\":{\"no\":\"2.4\",\"correct answer\":\"C\",\"submitted answer\":\"B\"},\"19\":{\"no\":\"16.3\",\"correct answer\":\"D\",\"submitted answer\":\"B\"}}','{\"0\":{\"unit\":\"2,3,11\",\"category\":\"present and past\"},\"1\":{\"unit\":\"9\",\"category\":\"present perfect and past\"},\"19\":{\"unit\":\"139\",\"category\":\"Phrasal verbs\"}}','2016-04-24 14:05:19',1),
+	(13,1,'{\"0\":{\"no\":\"1.6\",\"correct answer\":\"A\",\"submitted answer\":\"A\"},\"1\":{\"no\":\"2.6\",\"correct answer\":\"B\",\"submitted answer\":\"A,B\"},\"19\":{\"no\":\"16.1\",\"correct answer\":\"B\",\"submitted answer\":\"A\"}}','{\"1\":{\"unit\":\"11,10\",\"category\":\"present perfect and past\"},\"19\":{\"unit\":\"137\",\"category\":\"Phrasal verbs\"}}','2016-04-24 14:06:19',1),
+	(14,1,'{\"0\":{\"no\":\"1.2\",\"correct answer\":\"B\",\"submitted answer\":\"B\"},\"1\":{\"no\":\"2.5\",\"correct answer\":\"A\",\"submitted answer\":\"B\"},\"19\":{\"no\":\"16.4\",\"correct answer\":\"C\",\"submitted answer\":\"C\"}}','','2016-04-24 21:58:03',1),
+	(15,1,'{\"0\":{\"no\":\"1.6\",\"correct answer\":\"A\",\"submitted answer\":\"A\"},\"1\":{\"no\":\"2.14\",\"correct answer\":\"C\",\"submitted answer\":\"B\"},\"2\":{\"no\":\"3.1\",\"correct answer\":\"B\",\"submitted answer\":\"B\"},\"3\":{\"no\":\"4.6\",\"correct answer\":\"C,D\",\"submitted answer\":\"B\"},\"4\":{\"no\":\"5.3\",\"correct answer\":\"D\",\"submitted answer\":\"B\"},\"11\":{\"no\":\"12.6\",\"correct answer\":\"B,C\",\"submitted answer\":\"B\"},\"5\":{\"no\":\"6.1\",\"correct answer\":\"C\",\"submitted answer\":\"B\"},\"6\":{\"no\":\"7.1\",\"correct answer\":\"A\",\"submitted answer\":\"B\"},\"7\":{\"no\":\"8.3\",\"correct answer\":\"D\",\"submitted answer\":\"A\"},\"19\":{\"no\":\"16.2\",\"correct answer\":\"A\",\"submitted answer\":\"C\"}}','{\"3\":{\"unit\":\"29\",\"category\":\"modals\"},\"4\":{\"unit\":\"39.41\",\"category\":\"If and wish\"},\"7\":{\"unit\":\"50\",\"category\":\"questions and auxiliary verbs\"},\"19\":{\"unit\":\"138\",\"category\":\"Phrasal verbs\"}}','2016-04-24 21:59:03',1);
+
+/*!40000 ALTER TABLE `grammarTestSubmissions` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table grammarTestUsers
@@ -260,6 +276,7 @@ CREATE TABLE `grammarTestUsers` (
   `first_name` varchar(11) DEFAULT NULL,
   `last_name` varchar(11) DEFAULT NULL,
   `phone` varchar(40) DEFAULT NULL,
+  `username` varchar(40) DEFAULT NULL,
   `password` varchar(40) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -268,11 +285,18 @@ CREATE TABLE `grammarTestUsers` (
 LOCK TABLES `grammarTestUsers` WRITE;
 /*!40000 ALTER TABLE `grammarTestUsers` DISABLE KEYS */;
 
-INSERT INTO `grammarTestUsers` (`id`, `first_name`, `last_name`, `phone`, `password`, `timestamp`)
+INSERT INTO `grammarTestUsers` (`id`, `first_name`, `last_name`, `phone`, `username`, `password`, `timestamp`)
 VALUES
-	(1,'Mike','Tang','18611809544','21232f297a57a5a743894a0e4a801fc3','2016-04-08 22:20:24'),
-	(2,'Mike','X','1234567890','test','2016-04-08 22:23:08'),
-	(3,'Tes','Tes',NULL,NULL,'2016-04-12 21:30:39');
+	(1,'Mike','Tang','18611809544','MikeT','21232f297a57a5a743894a0e4a801fc3','2016-04-08 22:20:24'),
+	(2,'Mike','X','1234567890','MikeX','test','2016-04-08 22:23:08'),
+	(3,'Tes','Tes',NULL,NULL,NULL,'2016-04-12 21:30:39'),
+	(5,NULL,NULL,'1234',NULL,'21232f297a57a5a743894a0e4a801fc3','2016-04-24 21:29:14'),
+	(6,NULL,NULL,'12345',NULL,'21232f297a57a5a743894a0e4a801fc3','2016-04-24 21:30:04'),
+	(7,NULL,NULL,'1234532',NULL,'81dc9bdb52d04dc20036dbd8313ed055','2016-04-24 22:03:05'),
+	(8,NULL,NULL,'12341234',NULL,'81dc9bdb52d04dc20036dbd8313ed055','2016-04-24 22:14:17'),
+	(9,NULL,NULL,'1231231234',NULL,'81dc9bdb52d04dc20036dbd8313ed055','2016-04-24 22:18:48'),
+	(10,NULL,NULL,'12312312341',NULL,'81dc9bdb52d04dc20036dbd8313ed055','2016-04-24 22:20:23'),
+	(11,NULL,NULL,'123123123411',NULL,'81dc9bdb52d04dc20036dbd8313ed055','2016-04-24 22:22:09');
 
 /*!40000 ALTER TABLE `grammarTestUsers` ENABLE KEYS */;
 UNLOCK TABLES;

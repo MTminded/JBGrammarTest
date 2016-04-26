@@ -269,6 +269,15 @@ body{
         text-decoration: none;
         color:#fff;
     }
+    .progress_bar a span.empty{
+        background: #EB3941;
+        border-right: 1px solid #F9CC9D;
+        text-decoration: none;
+        color:#fff;
+    }
+    .progress_bar a span.current{
+        border-bottom: 1px solid #7eb530;
+    }
 #timer{
     font-size: 16px;
     font-weight: 600;

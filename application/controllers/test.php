@@ -100,9 +100,11 @@ class Test extends CI_Controller
 
         //if student has previously answered a question, show that question instead
         $lastSubmission = $this->grammar_model->getInPorgressSubmission($user_id);
+        $data['submittedAnswers'] = [];
         if ($lastSubmission->num_rows() != 0){
             $submittedAnswers = json_decode($lastSubmission->result()[0]->answers, true);
             //if this question has been previously submitted, display the submission
+            $data['submittedAnswers'] = $submittedAnswers;
             if (array_key_exists($original_num-1, $submittedAnswers)) {
                 $question = $submittedAnswers[$original_num-1]['no'];
                 $question = strstr($question, '.');

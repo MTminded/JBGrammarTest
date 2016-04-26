@@ -9,7 +9,18 @@
 							<div class="progress_bar">
 								<?php for ($x = 1; $x <= 20; $x++) :?>
 									<a href="<?php echo site_url('test/grammar/'. ($x) );?>">
-										<span class="progress-<?php echo $x;?> <?php if ($x<$num) echo "complete";?>"><?php echo $x; ?></span>
+										<span class="progress-<?php echo $x;?> 
+										<?php if (array_key_exists($x-1,$submittedAnswers)){
+											if ($submittedAnswers[$x-1]['submitted answer'] != "") {
+												echo "complete";
+											}
+											else{
+												echo "empty";
+											}	
+										}?> 
+										<?php if ($x == $num) echo "current";?> 
+
+										"><?php echo $x; ?></span>
 									</a>
 									
 								<?php endfor; ?>
