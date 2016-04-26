@@ -8,7 +8,10 @@
 						<div class="col-xs-12 col-sm-10">
 							<div class="progress_bar">
 								<?php for ($x = 1; $x <= 20; $x++) :?>
-									<span class="progress-<?php echo $x;?> <?php if ($x<$num) echo "complete";?>"></span>
+									<a href="<?php echo site_url('test/grammar/'. ($x) );?>">
+										<span class="progress-<?php echo $x;?> <?php if ($x<$num) echo "complete";?>"><?php echo $x; ?></span>
+									</a>
+									
 								<?php endfor; ?>
 							</div>
 						</div>

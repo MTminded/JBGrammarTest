@@ -248,16 +248,26 @@ body{
     overflow: hidden;
     margin-bottom: 5px;
 }
-    .progress_bar span{
+    .progress_bar a span{
         height:20px;
         width:5%;
         background: #eee;
         float:left;
         border-right: 1px solid #fff;
+        font-size: 10px;
+        line-height: 20px;
+        text-align: center;
+        text-decoration: none;
+        color:#777;
     }
-    .progress_bar span.complete{
+    .progress_bar a:hover span{
+        opacity: 0.9;
+    }
+    .progress_bar a span.complete{
         background: #7eb530;
         border-right: 1px solid #94c500;
+        text-decoration: none;
+        color:#fff;
     }
 #timer{
     font-size: 16px;
