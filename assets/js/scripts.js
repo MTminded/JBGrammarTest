@@ -36,6 +36,13 @@ function displayCountdown(start_date_time){
 		    // format countdown string + set tag value
 		    countdown.innerHTML = xmin + minutes + ":" + xsec + seconds; 
 		    timer.style.visibility = "visible";
+
+		    //set the color of the timer
+		    if (seconds_left < 120){
+		    	timer.style.color = "#FF0808";
+		    }
+		    
+
 	    }
 
 	}, 1000);
