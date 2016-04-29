@@ -1,4 +1,4 @@
-<div class="content">
+q<div class="content">
 	<div class="row mt40">
 		<div class="col-xs-12">
 			<div class="box">
@@ -48,7 +48,7 @@
 						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_A != '') :?>
 							<label class="answer_wrapper">		 
-								<input class="answer" type="checkbox" name="answer_a" value="A"> <?php echo $question->choice_A;?>
+								<input class="answer" type="checkbox" name="answer_a" value="A" <?php if (strpos($answer, 'A') !== false) echo 'checked'; ?>> <?php echo $question->choice_A;?>
 							</label>
 						<?php endif;?>	
 						</div>
@@ -56,7 +56,7 @@
 						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_B != '') :?>
 							<label class="answer_wrapper">		 
-								<input class="answer" type="checkbox" name="answer_b" value="B"> <?php echo $question->choice_B;?>
+								<input class="answer" type="checkbox" name="answer_b" value="B" <?php if (strpos($answer, 'B') !== false) echo 'checked'; ?>> <?php echo $question->choice_B;?>
 							</label>
 						<?php endif;?>	
 						</div>
@@ -64,7 +64,7 @@
 						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_C != '') :?>
 							<label class="answer_wrapper">		 
-								<input class="answer" type="checkbox" name="answer_c" value="C"> <?php echo $question->choice_C;?>
+								<input class="answer" type="checkbox" name="answer_c" value="C" <?php if (strpos($answer, 'C') !== false) echo 'checked'; ?>> <?php echo $question->choice_C;?>
 							</label>
 						<?php endif;?>	
 						</div>
@@ -72,7 +72,7 @@
 						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_D != '') :?>
 							<label class="answer_wrapper">		 
-								<input class="answer" type="checkbox" name="answer_d" value="D"> <?php echo $question->choice_D;?>
+								<input class="answer" type="checkbox" name="answer_d" value="D" <?php if (strpos($answer, 'D') !== false) echo 'checked'; ?>> <?php echo $question->choice_D;?>
 							</label>
 						<?php endif;?>	
 						</div>
@@ -80,7 +80,7 @@
 						<div class="col-xs-12 col-sm-4">
 						<?php if ($question->choice_E != '') :?>
 							<label class="answer_wrapper">		 
-								<input class="answer" type="checkbox" name="answer_e" value="E"> <?php echo $question->choice_E;?>
+								<input class="answer" type="checkbox" name="answer_e" value="E" <?php if (strpos($answer, 'E') !== false) echo 'checked'; ?>> <?php echo $question->choice_E;?>
 							</label>
 						<?php endif;?>	
 						</div>

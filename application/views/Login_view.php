@@ -22,9 +22,9 @@
 
           <fieldset>
                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">Username</span>
-                    <input class="form-control" id="txt_username" name="txt_username" placeholder="Username" type="text" value="<?php echo set_value('txt_username'); ?>" aria-describedby="basic-addon1">
-                    <span class="text-danger"><?php echo form_error('txt_username'); ?></span>
+                    <span class="input-group-addon" id="basic-addon1">Phone Number</span>
+                    <input class="form-control" id="txt_phone" name="txt_phone" placeholder="Phone" type="text" value="<?php echo set_value('txt_phone'); ?>" aria-describedby="basic-addon1">
+                    <span class="text-danger"><?php echo form_error('txt_phone'); ?></span>
                </div>
 
                <div class="input-group mt10">

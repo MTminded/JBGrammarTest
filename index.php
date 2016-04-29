@@ -41,7 +41,7 @@
  *---------------------------------------------------------------
 */
 
-define('BASE_URL', 'http://localhost/');
+define('BASE_URL', 'http://localhost:8888/');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');

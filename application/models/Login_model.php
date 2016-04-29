@@ -16,6 +16,14 @@ class Login_model extends CI_Model
           return $query;
      }
 
+     function get_user2($phone, $pwd)
+     {
+          $sql = "select * from grammarTestUsers where phone = '" . $phone . "' and password = '" . md5($pwd) . "'";
+          $query = $this->db->query($sql);
+          return $query;
+     }
+
+
      function get_user_by_phone($phone)
      {
           $sql = "select * from grammarTestUsers where phone = '" . $phone . "'";

@@ -21,12 +21,12 @@ class Login extends CI_Controller
 
           date_default_timezone_set('Asia/Hong_Kong');
           //get the posted values
-          $username = $this->input->post("txt_username");
+          $phone = $this->input->post("txt_phone");
           $password = $this->input->post("txt_password");
           $code = $this->input->post("txt_code");
 
           //set validations
-          $this->form_validation->set_rules("txt_username", "Username", "trim|required");
+          $this->form_validation->set_rules("txt_phone", "Phone Number", "trim|required|numeric");
           $this->form_validation->set_rules("txt_password", "Password", "trim|required");
           $this->form_validation->set_rules("txt_code", "Code", "trim|required");
           $title['title'] = "Welcome to ".TITLE;
@@ -49,7 +49,7 @@ class Login extends CI_Controller
                if ($this->input->post('btn_login') == "Login")
                {
                     //check if username and password is correct
-                    $usr_result = $this->login_model->get_user($username, $password);
+                    $usr_result = $this->login_model->get_user2($phone, $password);
                     $code_session = $_SESSION["security_code"];
 
                     if ($usr_result->num_rows() > 0)  //user exists
@@ -70,7 +70,7 @@ class Login extends CI_Controller
                     else
                     {    
                          //User doesn't exist or entered incorrectly
-                         $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Sorry, incorrect username or password.</div>');
+                         $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Sorry, incorrect phone number or password.</div>');
                          redirect('login/index');
                     }
                }
