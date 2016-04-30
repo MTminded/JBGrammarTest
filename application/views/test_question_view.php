@@ -1,4 +1,4 @@
-q<div class="content">
+<div class="content">
 	<div class="row mt40">
 		<div class="col-xs-12">
 			<div class="box">
@@ -117,6 +117,7 @@ q<div class="content">
 	(function() {
 		//convert date to firefox format
 		var startTime = '<?php echo $startTime;?>';
+		var timeLimit = <?php echo TIME_LIMIT; ?>; 
 		// if(startTime.indexOf('Z')==-1)startTime=startTime.replace(' ','T')+'Z';
 
 		// set the date we're counting down to
@@ -124,7 +125,7 @@ q<div class="content">
 		//start_date_time.setUTCHours(15);
 
 		// start_date_time = start_date_time.getTime();
-		displayCountdown(startTime * 1000);
+		displayCountdown(startTime * 1000, timeLimit);
 
 	})();
 

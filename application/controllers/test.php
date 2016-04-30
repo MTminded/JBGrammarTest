@@ -61,6 +61,15 @@ class Test extends CI_Controller
             redirect('login/index');
         }
 
+        //check if time is up
+        if (isset($_SESSION["startTime"])){
+            $startTime = $_SESSION["startTime"];
+        }else{
+            $startTime = time();
+        }
+        if (TIME_LIMIT/1000 - (time() - $startTime ) <= 0 )
+            redirect('test/complete');
+
         //temp
         if($num>20){
             redirect('test/grammar/1');

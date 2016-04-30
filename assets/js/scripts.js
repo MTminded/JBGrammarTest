@@ -1,4 +1,4 @@
-function displayCountdown(start_date_time){
+function displayCountdown(start_date_time, timeLimit){
 	// variables for time units and extra digits (i.e. 09 instead of 9)
 	var days, hours, minutes, seconds, xhour, xmin, xsec;
 
@@ -14,7 +14,7 @@ function displayCountdown(start_date_time){
 	    var d = new Date();	
 
 	    var current_date = d.getTime();
-	    var seconds_left = (602000 - (current_date - start_date_time)) / 1000;
+	    var seconds_left = (timeLimit - (current_date - start_date_time)) / 1000;
 
 	    if (seconds_left < 0){
 	    	countdown.innerHTML = "Times Up!";

@@ -46,6 +46,7 @@ define('DB_HOSTNAME', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
 define('DB_NAME', 'infinity');
+define('TIME_LIMIT', 602000);
 
 
 /*---------------------------------------------------------------
