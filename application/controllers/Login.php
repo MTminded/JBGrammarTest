@@ -60,7 +60,7 @@ class Login extends CI_Controller
                               //set the session variables
                               $_SESSION["user_id"] = $usr_result->result()[0]->id;
                               
-                              redirect('test/index'); 
+                              redirect('home/index'); 
                          }else{ 
                          //if validation code is incorrect show warning
                              $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Please enter the correct validation code</div>');

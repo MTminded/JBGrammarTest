@@ -18,21 +18,26 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
       <ul class="nav navbar-nav">
-        <a class="logo" href="<?php echo site_url('login/index');?>"><img src="<?php echo asset_url();?>img/logo.png" alt=""></a>
+        <a class="logo" href="<?php echo site_url('home/index');?>"><img src="<?php echo asset_url();?>img/logo.png" alt=""></a>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
+        <?php if (isset($_SESSION["user_id"])) :?>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> 
-
-        
-          <span class="caret"></span></a>
+          <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
             <!-- <li><a href="#">My Account</a></li> -->
             <!-- <li role="separator" class="divider"></li> -->
             <li><a href="<?php echo site_url('login/logout');?>">Logout</a></li>
           </ul>
         </li>
+        <?php else :?>
+          <li><a href="<?php echo site_url('signup/index');?>">Sign Up</a></li>
+          <li><a href="<?php echo site_url('login/index');?>">Login</a></li>
+        <?php endif; ?>
+  
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

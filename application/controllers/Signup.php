@@ -41,7 +41,7 @@ class Signup extends CI_Controller
           {
                //validation fails or not logged
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/nav_alt', $data);
+            $this->load->view('templates/nav', $data);
             $this->load->view('signup_view');
             $this->load->view('templates/footer_reg');
              

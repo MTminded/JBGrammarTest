@@ -51,6 +51,8 @@ p{
 
 .f_l{float:left;}
 .f_r{float:right;}
+.nopl{padding-left: 0 !important;}
+.nopr{padding-right: 0 !important;}
 
 ol, ul {
     list-style: none;
@@ -137,6 +139,10 @@ body{
 /* ==========================================================================
  custom styles
    ========================================================================== */
+.main_logo{
+    width:30%;
+    margin-top: 11%;
+}
 .logo img{
     margin-top: 10px;
     height:27px;
@@ -200,6 +206,16 @@ body{
         background: #7eb530 !important;
         color:#fff !important;
     }
+    .green_button2{
+        display: block;
+    }
+.home_page{
+    /*width: 200px;*/
+    margin-top: 50px;
+    min-width: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
 .next_button{
     background: #7eb530;
@@ -378,6 +394,13 @@ body{
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+
+@media (max-width: 500px) {
+    .main_logo{
+        width:40%;
+        margin-top: 15%;
+    }
+}
 
 @media only screen and (min-width: 35em) {
 
