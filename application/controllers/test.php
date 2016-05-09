@@ -148,6 +148,7 @@ class Test extends CI_Controller
         $data['title'] = "Welcome to ".TITLE;
         $data['correct_answers'] = $correctAnswers;
         $data['study_units'] = $study_units;
+        $data['result_id'] = $id;
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);

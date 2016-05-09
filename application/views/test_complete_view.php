@@ -26,7 +26,7 @@
 								<p class="t_c">Recommended Study Units:</p>
 								<?php foreach ($study_units as $study_unit): ?>
 									<div class="study_unit row">
-										<a class="col-xs-5" href="<?php echo site_url('study/' . str_replace(',', '-', $study_unit['unit']));?>">Unit: <?php echo $study_unit['unit'];?></a>
+										<a class="col-xs-5" href="<?php echo site_url('study/' . $result_id . '/' . str_replace(',', '-', $study_unit['unit']) . '/1' );?>">Unit: <?php echo $study_unit['unit'];?></a>
 										<div class="col-xs-7"><?php echo $study_unit['category']; ?> </div>
 										 
 									</div>
@@ -43,7 +43,7 @@
 
 				<div class="box_bottom">
 					<a href="<?php echo site_url('test/start');?>" class="btn back_button f_l transition complete_btn">Retake Test</a>
-					<a href="<?php echo site_url('study/' . $study_units_string); ?>" type="submit" class="btn btn-default next_button f_r transition complete_btn" name="submit">Start Studying</a>
+					<a href="<?php echo site_url('study/' . $result_id . '/' . $study_units_string . '/1'); ?>" type="submit" class="btn btn-default next_button f_r transition complete_btn" name="submit">Start Studying</a>
 				</div>
 
 			</div>

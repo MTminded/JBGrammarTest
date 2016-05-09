@@ -52,6 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 $route['default_controller'] = 'home';
 $route['test/grammar/(:any)'] = 'test/grammar/$1';
-$route['study/(:any)'] = 'study/index/$1';
+$route['study/(:any)/(:any)/(:any)'] = 'study/index/$1/$2/$3';
 
 
