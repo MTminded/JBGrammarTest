@@ -1,5 +1,5 @@
-<div class="wrapper login_wrapper">
-     <div class="row">
+<div class="content2">
+     <div class="row mt40">
           <div class="col-xs-12 t_c ">
                <p class="sub_title">Welcome to</p>
                <h1 class="main_title"><?php echo TITLE;?></h1>
