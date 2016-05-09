@@ -2,12 +2,20 @@
 (function() {
 
     $('.btn-code').click(function(e) {
-        $.ajax({
-          url: getCodeURL,
-          context: document.body
-        }).done(function(data) {
-          alert("The test calidation cdoe is: " + data);
-        });
+        var number = $('#txt_phone').val();
+        
+        if (number == ''){
+            alert('please enter a phone number!');
+        }else{
+            $.ajax({
+              url: getCodeURL + '/' + number,
+              context: document.body
+            }).done(function(data) {
+              alert(data);
+            });
+        }
+
+        
     });
 
     var method;

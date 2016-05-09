@@ -96,10 +96,10 @@ class Signup extends CI_Controller
 
     }
 
-    public function getValidationCode(){
+    public function getValidationCode($number){
         $code = 1234;
         $_SESSION["security_code"] = $code;
-        echo $code;
+        echo 'Security code sent to the number: ' . $number . ' (Test code is ' . $code . ')';
     }
 
 }?>

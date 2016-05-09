@@ -25,6 +25,10 @@ class Study extends CI_Controller
         $data['total_pages'] = count($study_units);
         $data['current_page'] = $page;
 
+        if (count($study_units) == 0){
+            redirect('test/result/' . $result_id);
+        }
+
         //other info
         $data['study_nums'] = $study_nums;
         $data['result_id'] = $result_id;
