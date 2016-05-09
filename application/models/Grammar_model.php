@@ -34,6 +34,14 @@ class Grammar_model extends CI_Model
         return $query;
     }
 
+    function getSubmissionById($id){
+        $sql = "SELECT *
+                FROM grammarTestSubmissions
+                WHERE id = '{$id}' ";
+        $query = $this->db->query($sql);
+        return $query;
+    }
+
     function getInPorgressSubmission($user_id){
         $sql = "SELECT *
                 FROM grammarTestSubmissions

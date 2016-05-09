@@ -130,31 +130,14 @@ class Test extends CI_Controller
          
     }
 
-    public function timesup(){
-
-    }
-
-    public function complete(){
-        //check if user is logged in
-        if (isset($_SESSION["user_id"])){
-             $user_id = $_SESSION["user_id"];
-        }else{
-            redirect('login/index');
-        }
-
+    public function result($id){
         //how many answers are correct and get suggested study units
-        $lastSubmission = $this->grammar_model->getInPorgressSubmission($user_id);
-        if ($lastSubmission->num_rows() != 0){
+        $submission = $this->grammar_model->getSubmissionById($id);
+        if ($submission->num_rows() != 0){
             
-            $submittedAnswers = json_decode($lastSubmission->result()[0]->answers, true);
-            $study_units = json_decode($lastSubmission->result()[0]->study_units, true);
+            $submittedAnswers = json_decode($submission->result()[0]->answers, true);
+            $study_units = json_decode($submission->result()[0]->study_units, true);
             $correctAnswers = count($submittedAnswers) - count($study_units);
-
-            //set test to complete
-            $data = array(
-                 'completed' => 1
-            );
-            $this->grammar_model->testComplete($user_id, $data);
    
         }else{
             //redirect to the start of the test
@@ -170,6 +153,33 @@ class Test extends CI_Controller
         $this->load->view('templates/nav', $data);
         $this->load->view('test_complete_view', $data);
         $this->load->view('templates/footer_reg');
+
+    }
+
+    public function complete(){
+        //check if user is logged in
+        if (isset($_SESSION["user_id"])){
+             $user_id = $_SESSION["user_id"];
+        }else{
+            redirect('login/index');
+        }
+
+        //check to see if user just completed a test
+        $lastSubmission = $this->grammar_model->getInPorgressSubmission($user_id);
+        if ($lastSubmission->num_rows() != 0){
+
+            //set test to complete
+            $data = array(
+                 'completed' => 1
+            );
+            $this->grammar_model->testComplete($user_id, $data);
+   
+        }else{
+            //redirect to the start of the test
+            redirect('home/index');
+        }
+
+        redirect('test/result/' . $lastSubmission->result()[0]->id);
     }
 
     public function submit(){
