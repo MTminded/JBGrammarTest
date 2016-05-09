@@ -16,9 +16,10 @@ class Study extends CI_Controller
       $this->load->model('dict_model');
     }
 
-    public function index(){
-        $num = 1;
-        $study_units = $this->dict_model->getStudyUnits($num);
+    public function index($study_nums){
+        //explode $study_nums string into an array
+        $study_num_array = explode("-", $study_nums);
+        $study_units = $this->dict_model->getStudyUnits($study_num_array);
         echo "<pre>";
         print_r($study_units);
         echo "</pre>";

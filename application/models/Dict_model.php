@@ -10,18 +10,15 @@ class Dict_model extends CI_Model
 
     function getStudyUnits($study_units){
 
-        //Turn $study_units into array
-        $study_unit = [1, 2, 3, 4];
-
         $sql = "";
-        for ($i=0; $i < count($study_unit); $i++) { 
+        for ($i=0; $i < count($study_units); $i++) { 
             if ($i == 0){
                $sql = "SELECT *
                 FROM grammarDict
-                WHERE Study_Unit = '{$study_unit[$i]}' ";
+                WHERE Study_Unit = '{$study_units[$i]}' ";
                 
             }else{
-                $sql = $sql . "OR Study_Unit = '{$study_unit[$i]}' ";
+                $sql = $sql . "OR Study_Unit = '{$study_units[$i]}' ";
             }
         }
         $query = $this->db->query($sql);

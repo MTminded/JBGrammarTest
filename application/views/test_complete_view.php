@@ -17,19 +17,20 @@
 						</div>
 					</div>
 					
-					
+					<?php $study_units_string = '';?>
+
 					<?php if ($study_units != null ) :?>
-					
+						
 						<div class="row study_units">
 							<div class="col-xs-12 col-sm-5 center">
 								<p class="t_c">Recommended Study Units:</p>
 								<?php foreach ($study_units as $study_unit): ?>
 									<div class="study_unit row">
-										<div class="col-xs-5">Unit: <?php echo $study_unit['unit'];?></div>
+										<a class="col-xs-5" href="<?php echo site_url('study/' . str_replace(',', '-', $study_unit['unit']));?>">Unit: <?php echo $study_unit['unit'];?></a>
 										<div class="col-xs-7"><?php echo $study_unit['category']; ?> </div>
 										 
 									</div>
-
+									<?php $study_units_string = $study_units_string . '-' . str_replace(',', '-', $study_unit['unit']);?>
 								<?php endforeach;?>
 							</div>
 						</div>	
@@ -42,7 +43,7 @@
 
 				<div class="box_bottom">
 					<a href="<?php echo site_url('test/start');?>" class="btn back_button f_l transition complete_btn">Retake Test</a>
-					<button type="submit" class="btn btn-default next_button f_r transition complete_btn" name="submit">Start Studying</button>
+					<a href="<?php echo site_url('study/' . $study_units_string); ?>" type="submit" class="btn btn-default next_button f_r transition complete_btn" name="submit">Start Studying</a>
 				</div>
 
 			</div>

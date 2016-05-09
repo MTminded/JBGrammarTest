@@ -158,7 +158,7 @@ class Test extends CI_Controller
    
         }else{
             //redirect to the start of the test
-            redirect('test/index');
+            redirect('home/index');
         }
 
         //set the data and display them
